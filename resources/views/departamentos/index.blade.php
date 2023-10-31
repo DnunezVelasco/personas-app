@@ -34,11 +34,19 @@
                         <td>{{ $departamento->depa_nomb }}</td>
                         <td>{{ $departamento->pais_codi }}</td>
                         <td>
-                        <form action="{{ route('departamentos.destroy', ['departamento' => $departamento->depa_codi]) }}" method="POST">
-                        @method('delete')
-                        @csrf
-    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-</form>
+
+                        <div class="btn-group">
+    <a href="{{ route('departamentos.edit', ['departamento' => $departamento->depa_codi]) }}" class="btn btn-info btn-sm">
+        <i class="fas fa-edit"></i>
+    </a>
+    <form action="{{ route('departamentos.destroy', ['departamento' => $departamento->depa_codi]) }}" method="POST" style="display: inline-block; margin: 0; padding: 0;">
+        @method('delete')
+        @csrf
+        <button type="submit" class="btn btn-danger btn-sm">
+            <i class="fas fa-trash"></i>
+        </button>
+    </form>
+</div>
 
                         </td>
                     </tr>
