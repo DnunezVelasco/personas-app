@@ -10,15 +10,14 @@
 </head>
 
 <body>
+
     <div class="container mt-5">
 
         <div class="mb-4">
             <h2>Lista municipios</h2>
+            <a href="{{ route('municipios.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus-circle"></i> Add</a>
         </div>
 
-        <!-- Add New Button -->
-
-        <!-- Table -->
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>

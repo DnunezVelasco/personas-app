@@ -93,6 +93,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('departamentos.index') }}">Departamentos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('municipios.index') }}">Municipios</a>
+                    </li>
                 </ul>
             </div>
         </div>
