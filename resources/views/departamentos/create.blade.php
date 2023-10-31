@@ -14,7 +14,7 @@
     <div class="container">
         <h1>Add deparment</h1>
         <form action="{{ route('departamentos.store') }}" method="POST">
-
+        @csrf
 
             <div class="mb-4 w-[60%]">
                 <label for="name" class="block text-sm font-medium text-gray-600">Nombre del departamento</label>
