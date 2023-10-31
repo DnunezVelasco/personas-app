@@ -2,39 +2,40 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Listado de Comunas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <title>Listado de Departamentos</title>
 </head>
 
-<body>
-    <div class="container">
-        <h1>departamentos</h1>
-        <a href="{{ route('departamentos.create') }}" class="btn btn-success">Add</a>
-        <table class="table">
-            <thead>
+<body class="bg-light">
+
+    <div class="container mt-5 shadow-lg p-4 bg-white rounded">
+        <h1 class="mb-4">Departamentos</h1>
+        <a href="{{ route('departamentos.create') }}" class="btn btn-success mb-3"><i class="fas fa-plus-circle"></i> Agregar</a>
+
+        <table class="table table-hover">
+            <thead class="bg-primary text-white">
                 <tr>
                     <th scope="col">Code</th>
-                    <th scope="col">Commune</th>
-                    <th scope="col">Municipality</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Departamento</th>
+                    <th scope="col">País</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach ($departamentos as $departamento)
+                @foreach ($departamentos as $departamento)
                     <tr>
-                    <th scope="row">{{ $departamento->depa_codi }}</th>
-                            <td class="py-2 px-4 border-b text-center">{{ $departamento->depa_nomb }}</td>
-                            <td class="py-2 px-4 border-b text-center">{{ $departamento->pais_codi }}</td>
-                        <td><span>Actions</span></td>
-                    <td>
-
-
+                        <td>{{ $departamento->depa_codi }}</td>
+                        <td>{{ $departamento->depa_nomb }}</td>
+                        <td>{{ $departamento->pais_codi }}</td>
+                        <td>
+                            <a href="#" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -42,16 +43,9 @@
         </table>
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+    <!-- Optional JavaScript; Bootstrap and Font Awesome JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
 
 </body>
 </html>
