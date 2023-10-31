@@ -24,7 +24,7 @@ class ComunaController extends Controller
            ->select('tb_comuna.*', 'tb_municipio.muni_nomb')
            ->get();
 
-        //dd($comunas); 
+        //dd($comunas);
 
         return view("comunas.index", ["comunas" => $comunas]);
     }
@@ -68,4 +68,22 @@ class ComunaController extends Controller
            ->get();
     }
 
+      /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $comuna = Comuna::find($id);
+
+        if (!$comuna) {
+            return redirect()->route('comunas.index')->with('error', 'La comuna no existe.');
+        }
+
+        $comuna->delete();
+
+        return redirect()->route('comunas.index')->with('success', 'Comuna eliminada exitosamente.');
+    }
 }
