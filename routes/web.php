@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
 Route::get('/comunas', [ComunaController::class, 'index'])->name('comunas.index');
 Route::post('/comunas', [ComunaController::class, 'store'])->name('comunas.store');
 
@@ -34,4 +35,4 @@ Route::get('/departamentos', [DepartamentoController::class, 'index'])->name('de
 Route::get('/departamentos/create', [DepartamentoController::class, 'create'])->name('departamentos.create');
 Route::post('/departamentos', [DepartamentoController::class, 'store'])->name('departamentos.store');
 
-Route::delete('/departamentos/{depa_codi}', [DepartamentoController::class, 'destroy'])->name('departamentos.destroy');
+Route::delete('/departamentos/{departamento}', [DepartamentoController::class, 'destroy'])->name('departamentos.destroy');
