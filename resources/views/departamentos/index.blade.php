@@ -34,8 +34,12 @@
                         <td>{{ $departamento->depa_nomb }}</td>
                         <td>{{ $departamento->pais_codi }}</td>
                         <td>
-                            <a href="#" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                        <form action="{{ route('departamentos.destroy', ['depa_codi' => $departamento->depa_codi]) }}" method="POST">
+    @method('delete')
+    @csrf
+    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+</form>
+
                         </td>
                     </tr>
                 @endforeach
