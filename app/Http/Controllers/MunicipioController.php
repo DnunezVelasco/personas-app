@@ -13,7 +13,7 @@ class MunicipioController extends Controller
      */
     public function index()
     {
-        $municipios = Municipio::with('departamento')->get();
+        $municipios = Municipio::with('departamento')->paginate(20);
         return view('municipios.index', ['municipios' => $municipios]);
     }
 
@@ -87,14 +87,13 @@ class MunicipioController extends Controller
      */
     public function destroy($muni_codi)
     {
-        $municipio = Municipio::find($muni_codi);
-        $municipio->delete();
-
-        $municipios = DB::table('tb_municipio')
-            ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_departamento.depa_codi')
-            ->select('tb_municipio.*', 'tb_departamento.depa_nomb')
-            ->get();
-        session()->flash('mensaje', 'El campo se elimino correctamente.');
-        return view('municipios.index', ['municipios' => $municipios]);
+        try {
+            $municipio = Municipio::findOrFail($muni_codi);
+            $municipio->delete();
+            return redirect()->route('municipios.index')->with('mensaje', 'El municipio se eliminó correctamente.');
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('municipios.index')->with('error', 'Municipio no encontrado.');
+        }
     }
+
 }
